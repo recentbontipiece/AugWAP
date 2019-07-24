@@ -1,0 +1,81 @@
+
+body{
+     background-color: #BE0234;
+}
+
+h1,h4,h3{
+    font-family: "Arial Black",sans-serif;
+    color:#F9732A;
+}
+
+
+div > p{
+    text-align: center;
+}
+
+p,ul,ol{
+    color:white;
+}
+
+ol > li{
+    font-family: Verdana,sans-serif;
+}
+
+#movie{
+    font-family: Georgia,sans-serif;
+    font-size: 13px;
+
+}
+
+
+
+p span{
+    color: cadetblue;
+}
+ul >li{
+    font-family: "Trebuchet MS";
+}
+
+a:link{
+    color: blueviolet;
+}
+a:visited{
+    color: green;
+}
+img {
+    width: 100%;
+}
+
+img.bg {
+    width: 86%;
+}
+
+.column {
+    float:left;
+    width: 33.33%;
+    padding: 5px;
+}
+
+
+.footer img{
+    width:5%;
+}
+
+.footer {
+    width: 100%;
+    float:left;
+
+}
+
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.custom.ul,span {
+    font-style: italic;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    color: burlywood;
+}
+
