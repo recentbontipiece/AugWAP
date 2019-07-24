@@ -1,0 +1,87 @@
+
+body{
+    /*width: 1024px;*/
+    /*height: 768px;
+      text-color:#A4A400;
+    */
+    background-color: white;
+    font-family:Georgia, Garamond,serif;
+    font-size:11pt;
+}
+
+h1,h2,h3,h4,h5,h6{
+    color: #A4A400;
+    background-color: #F0F0F0;
+    text-align: center;
+    text-decoration:underline;
+    font-size: 22pt;
+    font-weight: bold;
+    font-family: Lucida Sans Unicode, Helvetica, Arial,sans-serif;
+}
+
+.heleft{
+    float: left;
+    width: 100%;
+    text-align: left;
+}
+
+.circleList{
+  list-style-type:circle;
+}
+
+a.link{
+    color: #A4A400;
+}
+
+
+pre{
+    float:left;
+    background-color: yellow;
+    width: 98%;
+}
+
+.comment_div {
+    width: 100%;
+    float:left;
+}
+
+.valid_cpr  {
+    float:right;
+    
+
+}
+
+.pre{
+    background-color:white;
+    text-align: right;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted #A4A400;
+}
+
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #A4A400;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+
+
+
+
