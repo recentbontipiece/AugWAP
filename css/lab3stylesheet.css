@@ -1,3 +1,330 @@
 body{
 
 }
+
+#outer{
+     border: 2px dashed black;
+     padding: 10px;
+     overflow: hidden;
+ }
+
+
+ul{
+    background-color: red;
+    text-align: center;
+    padding: 20px;
+}
+
+li{
+    border: 1px solid black;
+    display: inline;
+    background-color: white;
+    padding: 10px;
+ }
+
+
+.box{
+    width: 100px;
+    height: 100px;
+    background-color: black;
+    margin: 10px;
+    float: left;
+}
+
+.clearfloat{
+   clear: left;
+}
+
+
+
+
+#container {
+    background-color: lightgray;
+    overflow: hidden;
+    padding: 10px;
+    width: 500px;
+}
+
+
+
+#column1, #column2 {
+    background-color: lightblue;
+    float: right;
+    margin-left: 10px;
+    width: 100px;
+}
+
+
+h1{
+    background-color: yellow;
+}
+
+.solmargin{
+    margin-top: 150px;
+    clear: left;
+}
+
+/*Sol 1*/
+#asl1, #bsl1 {
+    width: 100px;
+    height: 100px;
+    font: 30pt bold Helvetica, Arial, sans-serif;
+    line-height: 100px;
+    text-align: center;
+}
+
+#asl1 {
+    background-color: lightblue;
+    float: left;
+}
+
+#bsl1 {
+    background-color: pink;
+    float: right;
+}
+#csl1 {
+    background-color: lightgray;
+}
+
+
+ /*Sol 2*/
+
+#asl2, #bsl2 {
+    width: 100px;
+    height: 100px;
+    font: 30pt bold Helvetica, Arial, sans-serif;
+    line-height: 100px;
+    text-align: center;
+}
+
+
+#asl2 {
+    background-color: lightblue;
+    float: left;
+
+}
+
+#bsl2 {
+    background-color: pink;
+    float: right;
+    clear: left;
+}
+#csl2 {
+    background-color: lightgray;
+
+}
+
+
+
+
+/*Sol 3*/
+
+#asl3, #bsl3 {
+    width: 100px;
+    height: 100px;
+    font: 30pt bold Helvetica, Arial, sans-serif;
+    line-height: 100px;
+    text-align: center;
+}
+
+
+#asl3 {
+    background-color: lightblue;
+    float: left;
+
+}
+
+#bsl3 {
+    background-color: pink;
+    float: right;
+    clear: left;
+}
+#csl3 {
+    background-color: lightgray;
+    clear: left;
+    text-align: right;
+}
+
+
+
+/*Sol 4*/
+#asl4, #bsl4 {
+    width: 100px;
+    height: 100px;
+    font: 30pt bold Helvetica, Arial, sans-serif;
+    line-height: 100px;
+    text-align: center;
+}
+
+
+#asl4 {
+    background-color: lightblue;
+    float: left;
+
+}
+
+#bsl4 {
+    background-color: pink;
+    float: right;
+    clear: left;
+}
+#csl4 {
+    background-color: lightgray;
+    text-align: center;
+    width: 200px;
+    margin-left: auto;
+    margin-right:auto;
+}
+
+
+
+/*Sol 5*/
+#asl5, #bsl5 {
+    width: 100px;
+    height: 100px;
+    font: 30pt bold Helvetica, Arial, sans-serif;
+    line-height: 100px;
+    text-align: center;
+}
+
+
+#asl5 {
+    background-color: lightblue;
+    float: right;
+
+}
+
+#bsl5 {
+    background-color: pink;
+    float: left;
+}
+#csl5 {
+    background-color: lightgray;
+    text-align: center;
+    width: 200px;
+    float: left;
+}
+
+
+
+/*Sol 6*/
+#asl6, #bsl6{
+    width: 100px;
+    height: 100px;
+    font: 30pt bold Helvetica, Arial, sans-serif;
+    line-height: 100px;
+    text-align: center;
+}
+
+
+#asl6 {
+    background-color: lightblue;
+    float: right;
+
+}
+
+#bsl6 {
+    background-color: pink;
+    position: absolute;
+    top: 2600px;
+    right: 100px;
+}
+
+#csl6 {
+    background-color: lightgray;
+    text-align: center;
+    clear: right;
+    margin-right: 100px;
+}
+
+
+/*Sol 7*/
+#asl7, #bsl7{
+    width: 100px;
+    height: 100px;
+    font: 30pt bold Helvetica, Arial, sans-serif;
+    line-height: 100px;
+    text-align: center;
+}
+
+
+#asl7,#bsl7{
+    background-color: lightblue;
+    float: left;
+
+}
+
+#bsl7 {
+    background-color: pink;
+}
+
+#csl7 {
+    background-color: lightgray;
+    margin-left: 200px;
+}
+
+
+/*Sol 8*/
+#asl8, #bsl8{
+    width: 100px;
+    height: 100px;
+    font: 30pt bold Helvetica, Arial, sans-serif;
+    line-height: 100px;
+    text-align: center;
+}
+
+
+#asl8{
+    background-color: lightblue;
+    float: left;
+    clear: left;
+}
+
+#bsl8 {
+   position: absolute;
+
+    top: 3150px;
+    left: 10px;
+
+}
+
+#csl8 {
+    background-color: lightgray;
+    float: left;
+}
+
+
+
+#csl8 {
+    background-color: lightgray;
+    float: left;
+}
+
+
+
+/*Sol 9*/
+#asl9, #bsl9{
+    width: 100px;
+    height: 100px;
+    font: 30pt bold Helvetica, Arial, sans-serif;
+    line-height: 100px;
+    text-align: center;
+}
+
+
+#asl9,#bsl9{
+    background-color: lightblue;
+    float: left;
+
+}
+
+#bsl9 {
+    background-color: pink;
+    margin-bottom: 100px;
+}
+
+#csl9 {
+    background-color: lightgray;
+    clear: left;
+
+}
