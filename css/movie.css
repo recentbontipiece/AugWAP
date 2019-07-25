@@ -15,12 +15,11 @@ body{
     background-repeat:repeat-x;
 }
 
-#header2{
-    background-image: url("http://mumstudents.org/~610087/pictures/banner.png");
-    width:100%;
-    min-height:189px;
-    background-repeat: no-repeat;
-    background-position: center;
+div#header2 img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
 }
 
 
@@ -56,7 +55,6 @@ body{
 #bottomBoxleft{
     background-image: url("http://mumstudents.org/~610087/pictures/background.png");
     height: 890px;
-    width: 656px;
 }
 
 
@@ -73,8 +71,6 @@ body{
     border-top-left-radius: 15px;
     background-image: url("http://mumstudents.org/~610087/pictures/rbg.png");
     background-repeat:repeat-x;
-    width: 700px;
-
 }
 
 #topBoxleft span{
@@ -135,7 +131,7 @@ body{
     font-weight: bold;
     font-size: 8pt;
     font-style: italic;
-    padding: 8px;
+    padding: 2px;
 }
 
 .leftside{
