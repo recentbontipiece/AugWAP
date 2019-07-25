@@ -19,7 +19,6 @@ div#header2 img{
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 50%;
 }
 
 
@@ -163,6 +162,15 @@ div#bottomBoxRight p{
     margin-left: 50px;
 }
 
+#footer{
+    clear: left;
+    text-align: center;
+}
+
+.validation{
+    float:right;
+    clear: right;
+}
 
 
 
