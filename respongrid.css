@@ -1,73 +1,107 @@
+* {
+    box-sizing: border-box;
+}
 
 
-#header{
-    background-color:deepskyblue;
+ul{
+    background-color: darkslategrey;
+    padding: 20px;
+    margin: 0;
+}
+li{
+    border-right: 2px solid black;
+    display: inline;
+    color: white;
+    padding: 10px;
+    margin: 0 10px;
+}
+
+#itheader{
+    background-color: deepskyblue;
     text-align: center;
     padding: 10px;
 }
 
-#nav{
-    margin-top: -17px;
-    background-color: darkslategrey;
+#itmenu{
+    background-color: deepskyblue;
 }
 
-#container{
-    background-color: yellow;
+#col1{
+    background-color:dimgray;
 }
 
-.column1,.column2,.column3{
-    margin-top: -16px;
-    padding: 30px;
-    height: 200px;
-    float: left;
-
-}
-
-ul,li{
-    border-right: 1px solid black;
-    padding: 20px;
-}
-
-li{
-    display: inline;
-    color: white;
-    padding: 20px;
-}
-.column1{
-    width: 27%;
-    background-color: dimgray;
-}
-
-.column2{
-    width: 35.2%;
+#col2{
     background-color: gray;
 }
 
-.column3{
-    width: 27%;
-    background-color: darkgray;
+#col3{
+    background-color:darkgray;
+}
+
+
+#col1,#col2,#col3 {
+    width: 100%;
+    height: 400px;
+    padding: 10px;
 }
 
 #footer{
-    clear: left;
+    background-color: darkslategrey;
     text-align: center;
+    padding: 10px;
     color: white;
-    background-color:darkslategrey;
-}
-
-
-@media (max-width: 600px) {
-    /*.column2{*/
-    /*    flex: 100%;*/
-    /*    max-width: 0%;*/
-    /*}*/
 }
 
 
 
+/*Grid Item Six*/
+
+.grid-containersix{
+    display: grid;
+    grid-template-areas:'header header header''menu menu menu''col1 col2 col3' 'footer footer footer';
+}
+
+.grid-containersix > div{
+    font-size: 30px;
+}
+
+
+.grid-itemheader{
+    grid-area: header;
+}
+
+.grid-itemmenu{
+    grid-area: menu;
+}
+
+.grid-itemcol1{
+    grid-area:col1;
+}
+
+.grid-itemcol2{
+    grid-area: col2;
+}
+
+.grid-itemcol3{
+    grid-area:col3;
+}
+
+.grid-itemfooter{
+    grid-area:footer;
+}
+
+.validation{
+    float:right;
+    clear: right;
+}
 
 
 
+@media screen and (max-device-width: 600px) {
+    .grid-containersix{
+        display: grid;
+        grid-template-areas:'header header header''menu menu menu''col1 col3 col3' 'col2 col2 col2' 'footer footer footer';
+    }
 
 
-
+}
