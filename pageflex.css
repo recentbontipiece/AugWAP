@@ -77,6 +77,12 @@ footer{
 }
 
 
+.validation{
+    float:right;
+    clear: right;
+}
+
+
 @media screen and (max-device-width: 600px) {
     #main {
         flex-wrap: wrap;
