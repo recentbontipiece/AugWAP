@@ -1,12 +1,37 @@
+
 * {
     box-sizing: border-box;
 }
+body {
+    padding: 20px;
+}
 
+.col1{
+  background-color:dimgray;
+}
 
+.col2{
+    background-color: gray;
+}
+
+.col3{
+    background-color:darkgray;
+}
+
+.col1,.col2,.col3{
+    height: 300px;
+}
+
+.header{
+    background-color: deepskyblue;
+    text-align: center;
+    padding: 5px;
+    margin: 0;
+}
 ul{
     background-color: darkslategrey;
     padding: 20px;
-    margin: 0;
+    margin: 0 10px;
 }
 li{
     border-right: 2px solid black;
@@ -16,79 +41,41 @@ li{
     margin: 0 10px;
 }
 
-#itheader{
-    background-color: deepskyblue;
-    text-align: center;
-    padding: 10px;
-}
-
-#itmenu{
-    background-color: deepskyblue;
-}
-
-#col1{
-    background-color:dimgray;
-}
-
-#col2{
-    background-color: gray;
-}
-
-#col3{
-    background-color:darkgray;
+.naviGation{
+    background: darkslategrey;
+    /*padding: 0.5px;*/
 }
 
 
-#col1,#col2,#col3 {
-    width: 100%;
-    height: 400px;
-    padding: 10px;
+
+#main {
+    display: flex;
+    flex-wrap: wrap;
 }
 
-#footer{
-    background-color: darkslategrey;
-    text-align: center;
-    padding: 10px;
+
+#main > .col2 {
+    flex: 2;
+}
+
+#main > .col1,
+#main > .col3 {
+    flex: 1 1 10vw;
+}
+
+
+header, footer,.col1, .col2, .col3 {
+    padding: 1em;
+}
+
+footer{
     color: white;
+    text-align: center;
+    font-size: 20px;
+    background: darkslategrey;
+    padding: 30px;
 }
 
-
-
-/*Grid Item Six*/
-
-.grid-containersix{
-    display: grid;
-    grid-template-areas:'header header header''menu menu menu''col1 col2 col3' 'footer footer footer';
-}
-
-.grid-containersix > div{
-    font-size: 30px;
-}
-
-
-.grid-itemheader{
-    grid-area: header;
-}
-
-.grid-itemmenu{
-    grid-area: menu;
-}
-
-.grid-itemcol1{
-    grid-area:col1;
-}
-
-.grid-itemcol2{
-    grid-area: col2;
-}
-
-.grid-itemcol3{
-    grid-area:col3;
-}
-
-.grid-itemfooter{
-    grid-area:footer;
-}
 
 .validation{
     float:right;
@@ -96,12 +83,27 @@ li{
 }
 
 
-
 @media screen and (max-device-width: 600px) {
-    .grid-containersix{
-        display: grid;
-        grid-template-areas:'header header header''menu menu menu''col1 col3 col3' 'col2 col2 col2' 'footer footer footer';
+    #main {
+        flex-wrap: wrap;
+    }
+    #main > .col1{
+        flex: 1 50%;
+    }
+
+    #main > .col2{
+        flex: 2 50%;
+    }
+
+    #main > .col3{
+        flex: 2 50%;
     }
 
 
 }
+
+
+
+
+
+
