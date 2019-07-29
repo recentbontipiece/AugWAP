@@ -25,9 +25,7 @@ function  chColor() {
     else{
         var txt = document.getElementById("idTxt").style.fontWeight = "normal";
         document.body.style.backgroundImage ="";
-
     }
-
 }
 
 
@@ -44,10 +42,8 @@ function chSize() {
     "use strict";
     var txt = document.getElementById("idTxt");
     if(!txt.style.fontSize){
-
        let compStyles = window.getComputedStyle(txt);
        txt.style.fontSize  = parseInt(compStyles.getPropertyValue("font-size"))*3/4+"px";
-        console.log("FontSize if "+txt.style.fontSize);
     }
     txt.style.fontSize = parseInt(txt.style.fontSize)+2+"px";
 }
