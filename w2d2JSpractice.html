@@ -1,1 +1,123 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+  'user strict'
+
+  function reverseArray(array){
+      result = [];
+      for(let item of array){
+          result.unshift(item);
+      }
+      return result;
+   }
+
+    function reverseArrayInPlace(array){
+      let len = array.length;
+      for(let i = 0; i<Math.floor(len/2); i++){
+          let wap = array[i];
+          array[i] = array[len-i-1];
+          array[len-i-1] = wap;
+      }
+      return array;
+    }
+
+    console.log(reverseArray(["A","B","C"]))
+    let arrayValue = [1,2,3,4,5];
+    reverseArrayInPlace(arrayValue);
+    console.log(arrayValue);
+
+    console.log("**************  EXO 2  **************");
+
+    function arrayToList(array) {
+        let arraytolist = null;
+
+        for(let i = array.length-1; i>=0;i--){
+            arraytolist = {
+             value : array[i],
+             rest  : arraytolist
+            }
+        }
+        return arraytolist;
+    }
+
+    function  listToArray(listArray){
+      let returArray = [];
+      for(let node = listArray; node; node=node.rest){
+          returArray.push(node.value);
+      }
+      return returArray;
+    }
+
+    function prepend(element,list){
+      return {element: element, list:list};
+    }
+
+    function nth(list, number){
+       if(number === 0)
+           return list.value;
+       else
+           return nth(list.rest, number-1);
+    }
+
+
+
+
+
+
+    console.log(arrayToList([10,20]));
+    console.log(listToArray(arrayToList([10,20,30])));
+    console.log(prepend(10,prepend(20,null)));
+    console.log(nth(arrayToList([10,20,30]),1));
+
+    console.log("**************  EXO 3 **************");
+
+
+
+    function deepEqual(a, b) {
+      if (a === b) {
+          // items are identical
+          return true;
+      } else if (typeof a === 'object' && a !== null && typeof b === 'object' && b !== null) {
+          // items are objects - do a deep property value compare
+          // join keys from both objects together in one array
+          let keys = Object.keys(a).concat(Object.keys(b));
+          // filter out duplicate keys
+          keys = keys.filter(
+              function (value, index, self) {
+                  return self.indexOf(value) === index;
+              }
+          );
+          for (p of keys) {
+              if (typeof a[p] === 'object' && typeof b[p] === 'object') {
+                  if (deepEqual(a[p], b[p]) === false) {
+                      return false;
+                  }
+              } else if (a[p] !== b[p]) {
+                  return false;
+              }
+          }
+          return true;
+      } else {
+          return false;
+      }
+    }
+
+  let obj = {here: {is: "an"}, object: 2};
+  console.log(deepEqual(obj, obj));
+  console.log(deepEqual(obj, {here: 1, object: 2}));
+  console.log(deepEqual(obj, {here: {is: "an"}, object: 2}));
+
+
+
+
+</script>
+
+</body>
+</html>
