@@ -1,86 +1,115 @@
-(function() {
-   "use strict";
+/*jshint esversion: 6 */
 
-   const DEFAULT_ANIMATED_SPEED = 250;
-   let frameIndex;
-   let previousTextareaValue;
-   let intervalAnimation;
+(function () {
+    "use strict";
+    // ********** declaring global variables **************
+    let timer = null;
+    let anim;
+    let interval;
+    let arr;
+    let animaSelect;
+    let text_area;
+    let start;
+    let stop;
+    let fontsize;
+    let turbo;
 
-   window.onload = function() {
-      document.getElementById("start").onclick = onStartClicked;
-      document.getElementById("stop").onclick = onStopClicked;
-      document.getElementById("fontsize").onchange = onFontSizeChanged;
-      document.getElementById('animation').onchange = onAnimationChanged;
-      document.getElementById("turbo").onchange = onTurboChanged;
-   };
 
-   function onStartClicked() {
-      const textareaDom = document.getElementById('text-area');
-      const stop = document.getElementById('stop');
 
-      previousTextareaValue = textareaDom.value;
-      this.disabled = true;
-      stop.disabled = false;
+    window.onload = function () {
 
-      frameIndex = 0;
-      const playAnimation = animation(DEFAULT_ANIMATED_SPEED);
-      playAnimation();
-   }
+        animaSelect = document.getElementById("animation");
+        text_area = document.getElementById("text-area");
+        start = document.getElementById("start");
+        stop = document.getElementById("stop");
+        fontsize = document.getElementById("fontsize");
+        turbo = document.getElementById("turbo");
 
-   function animation(animatedSpeed) {
-      const textareaDom = document.getElementById('text-area');
-      const animationDom = document.getElementById('animation');
-      const animation = animationDom.value;
-      const frames = ANIMATIONS[animation].split('=====\n');
 
-      return function() {
-         intervalAnimation = setInterval(showNextFrame, animatedSpeed, textareaDom, frames);
-      };
-   }
+        turbo.disabled = true;
 
-   function showNextFrame(textareaDom, frames) {
-      textareaDom.value = frames[frameIndex];
+        // ********* event handlers **************
+        animaSelect.onchange = selectFunc;
+        start.onclick = startFunc;
+        stop.onclick = stopFunc;
+        fontsize.onchange = changeFont;
+        turbo.onchange = changeSpeed;
 
-      if (frameIndex < frames.length - 1) frameIndex++;
-      else frameIndex = 0;
-   }
+    };
 
-   function onStopClicked() {
-      const start = document.getElementById('start');
-      const textarea = document.getElementById('text-area');
+    //****** Function declarations ********
 
-      this.disabled = true;
-      clearInterval(intervalAnimation);
-      textarea.value = previousTextareaValue;
-      start.disabled = false;
-   }
+    function selectFunc() {
+        let choice = animaSelect.value;
+        anim = window.ANIMATIONS[choice];
+        text_area.value = anim.split("=====\n")[0];
+    }
 
-   function onFontSizeChanged() {
-      const fontsizes= {
-         'Tiny': '7pt',
-         'Small': '10pt',
-         'Medium': '12pt',
-         'Large': '16pt',
-         'Extra Large': '24pt',
-         'XXL': '32pt'
-      };
 
-      const fontsize = fontsizes[this.value];
-      const textarea = document.getElementById('text-area');
-      textarea.style.fontSize = fontsize;
-   }
+    function startFunc() {
 
-   function onAnimationChanged() {
-      const textarea = document.getElementById('text-area');
-      textarea.value = ANIMATIONS[this.value];
-   }
+        interval = -1;
 
-   function onTurboChanged() {
-      const animatedSpeed = this.checked ? 50 : DEFAULT_ANIMATED_SPEED;
+        if(!text_area.value){
+            alert("Please make selection!!!");
+            return;
+        }
+        stop.disabled = false;
+        start.disabled = true;
+        animaSelect.disabled= true;
+        turbo.disabled= false;
 
-      clearInterval(intervalAnimation);
+        arr = anim.split("=====\n");
+        console.log(arr);
+        if(timer){
+            clearInterval(timer);
+            timer = null;
+        }
+        timer = setInterval(startAnimation, 250, arr);
 
-      const playAnimation = animation(animatedSpeed);
-      playAnimation();
-   }
+    }
+
+    function stopFunc() {
+        start.disabled = false;
+        stop.disabled = true;
+        animaSelect.disabled= false;
+        turbo.checked= false;
+        turbo.disabled= true;
+
+        if(timer){
+            clearInterval(timer);
+            timer = null;
+        }
+        text_area.value = anim.split("=====\n")[0];
+
+    }
+
+    function startAnimation(arr) {
+
+        ++interval;
+        if (interval >= arr.length) {
+            interval = 0;
+        }
+        text_area.value = arr[interval];
+
+    }
+
+    function changeFont() {
+        text_area.className = fontsize.value.split(" ")[0];
+    }
+
+    function changeSpeed() {
+        if(turbo.checked){
+            clearInterval(timer);
+            timer = null;
+            timer = setInterval(startAnimation, 50, arr);
+
+        }else{
+            clearInterval(timer);
+            timer = null;
+            timer = setInterval(startAnimation, 250, arr);
+
+        }
+
+    }
 })();
