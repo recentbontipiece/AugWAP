@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../../../../Downloads/ascii.js"></script>
+</head>
+<body>
+<script>
+    const person = {
+        name:'Baba',
+        teach: function() {
+            return " "+this.name +" is now teaching ";
+        }
+    }
+
+    console.log("");
+
+    const Teacherobc = Object.create(person);
+    const p1         = Object.create(person);
+
+    console.log("Before "+p1.name);
+    p1.name ="John Vallon";
+    console.log("After "+p1.name);
+    console.log("After "+p1);
+
+
+    console.log("Exo 3 with Object.create");
+
+</script>
+
+</body>
+</html>
