@@ -8,7 +8,49 @@
 <script>
  'user strict'
 
-        //Exo 3
+    console.log(" -------------- Exo 1 ------------");
+    String.prototype.filter = function(words){
+
+        return this.split(' ').filter( function (str) {
+            if(!words.includes(str)){
+                return str;
+            }
+        }).join(' ');
+    };
+
+    let words = "This house is not nice but bad designed";
+    const wordsFilter = ['not','bad'];
+    console.log("Words "+words);
+    console.log("Filter "+wordsFilter);
+    console.log("Result "+words.filter(wordsFilter));
+
+
+    console.log("");
+
+    Array.prototype.bubbleSort = function(){
+        for(let i = 0; i<this.length; i++){
+            for(let j = 0; j< (this.length-i-1);j++){
+                if(this[j] > this[j+1]){
+                    let temp  = this[j+1];
+                    this[j+1] = this[j];
+                    this[j]   = temp;
+
+                }
+            }
+        }
+        return this;
+    };
+
+    let arrayInt=[6,4,0,3,-2,1];
+    console.log("Array "+arrayInt);
+    console.log("Reverse Array "+arrayInt.bubbleSort());
+    console.log("");
+
+
+
+
+
+ //Exo 3
     console.log(" -------------- Exo 3 with Function constructor  ------------");
     function Person() {
        this.name =''
@@ -35,20 +77,143 @@
 
     console.log("------------------ Exo 4 --------------");
 
-    const personobj = {
-          name:'',
-          age :'',
-        greeting: function () {
-            return "Greetings, my name is "+this.name+"and I a am"+this.age+"years old.";
-        },
+    console.log("********** prototype object ******************");
 
-        // greeting: function () {
-        //     return "Greetings, my name is "+this.name+"and I a am"+this.age+"years old.";
-        // }
+    const Person1 ={
+        name:'',
+        age :'',
+        greeting: function () {
+            return "Greetings, my name is "+this.name+" and I a am "+this.age+" years old.";
+        },
+        salute: function () {
+            return "Good morning!, and in case I dont see you,good afternoon, good evening and good night!";
+        }
+    };
+
+    const Student1 ={
+        major :'',
+        greeting: function () {
+            return "Hey, my name is "+this.name+" and i a am studying "+this.major;
+        },
+        __proto__ : Person1
+
     };
 
 
+    const Professor1 ={
+        department :'',
+        greeting: function () {
+          return "Good day, my name is "+this.name+" and I am in the "+this.department+" department";
+        },
+        __proto__ : Person1
+    };
 
+     //Create a subclass for Student
+    let stobj = {
+        __proto__:Student1
+    }
+    stobj.name  = "John Valon";
+    stobj.age   = 40;
+    stobj.major = "Master Degree";
+    console.log(stobj.greeting());
+
+
+    let prfobj = {
+      __proto__:Professor1
+    }
+    prfobj.name        = "Keith Livi";
+    prfobj.age         = 40;
+    prfobj.department  = "Compro";
+    console.log(prfobj.greeting());
+    console.log("");
+    console.log("");
+
+
+
+
+    console.log("********** prototype  object base inheritence ******************");
+
+
+    const Personobj = {
+          name:'',
+          age :'',
+          greeting: function () {
+            return "Greetings, my name is "+this.name+" and I a am "+this.age+" years old.";
+          },
+          salute: function () {
+            return "Good morning!, and in case I dont see you,good afternoon, good evening and good night!";
+          }
+    };
+
+
+     const Studentsobj = Object.create(Personobj);
+     Studentsobj.major  ='';
+     Studentsobj.greeting = function(){
+        return "Hey, my name is "+this.name+" and i a am studying "+this.major;
+     }
+
+
+     const Professorbj = Object.create(Personobj);
+     Professorbj.department  ='';
+     Professorbj.greeting = function(){
+       return "Good day, my name is "+this.name+" and I am in the "+this.department+" department";
+     }
+
+      //Create Professor and Student Object
+      let st   = Object.create(Studentsobj);
+      st.name  = "John Valon";
+      st.age   = 40;
+      st.major = "Master Degree";
+
+
+      let prf         = Object.create(Professorbj);
+      prf.name        = "Keith Livi";
+      prf.age         = 40;
+      prf.department  = "Compro";
+
+      console.log(prf.greeting());
+      console.log(st.greeting());
+
+      console.log("");
+
+     console.log("********** Function Constructor ******************");
+     const Person3 =function(name,age) {
+        this.name  =name;
+        this.age   =age;
+     }
+
+     Person3.prototype.greeting = function () {
+         return "Greetings, my name is "+this.name+" and I a am "+this.age+" years old.";
+     }
+     Person3.prototype.salute = function () {
+         return "Good morning!, and in case I dont see you,good afternoon, good evening and good night!";
+     }
+
+     const Studentsbc3 = function (name,age,major) {
+         Person3.call(this,name,age);
+         this.major = major;
+     }
+
+     Studentsbc3.prototype = Object.create(Person3.prototype);
+     Studentsbc3.prototype.greeting = function(){
+         return "Hey, my name is "+this.name+" and i a am studying "+this.major;
+     }
+
+     const Professorsbc3 = function (name,age,department) {
+            Person3.call(this,name,age);
+            this.department = department;
+     }
+
+     Professorsbc3.prototype = Object.create(Person3.prototype);
+     Professorsbc3.prototype.greeting = function () {
+         return "Good day, my name is "+this.name+" and I am in the "+this.department+" department";
+     }
+
+     let st2 = new Studentsbc3("John Styves Vallon",50,"Master Degree")
+     let pr2 = new Professorsbc3("Keith Livi",40,"Compro");
+
+     console.log(st2.greeting());
+     console.log(pr2.greeting());
 
 </script>
 </body>
