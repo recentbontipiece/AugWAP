@@ -1,0 +1,26 @@
+/**{*/
+/*    border-box;*/
+/*}*/
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+}
+
+#container{
+    width: 100%;
+    height: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 100px;
+}
+
+#cicle{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #d96065;
+    /*margin-left: auto;*/
+    /*margin-right: auto;*/
+}
